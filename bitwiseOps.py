@@ -23,7 +23,8 @@ def process_image(image):
 
 mask_image= process_image(image_input)
 mask_image =cv2.bitwise_not(mask_image)
-bit_op = cv2.add(image_input,mask_image)
+# bit_op = cv2.add(image_input,mask_image)
+bit_op = cv2.bitwise_xor(image_input,mask_image)
 cv2.namedWindow('PreProcessing', cv2.WINDOW_NORMAL)
 cv2.imshow("PreProcessing",bit_op )
 cv2.waitKey(0)
